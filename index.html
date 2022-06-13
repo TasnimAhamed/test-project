@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:site_name" content="MicroTrade" />
+    <title>Portfolio</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap  CSS File-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!--Theme CSS File-->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--Media CSS File-->
+    <link rel="stylesheet" href="css/media.css">
+
+    <style>
+        body{
+
+            background-image: linear-gradient(to bottom, #423893, #3d3e97, #38449b, #324a9e, #2d4fa1, #2056a4, #115da5, #0063a6, #006ca5, #0073a1, #007a9c, #0b8096);
+        }
+        .project__portfolio{
+            padding: 20px 40px 20px 40px;
+            min-height: 100vh;
+        }
+        .project__portfolio .row{
+            margin-bottom: 12px;
+        }
+        .project__portfolio-title h1{
+            font-family: 'JetBrains Mono', monospace;
+            font-size:40px;
+            font-weight:500;
+            line-height:1.4;
+            color: #fff;
+        }
+
+        .project-flight {
+            background: #EAA934;
+            border: 1px solid #fff;
+            padding:6px 8px 6px 20px;
+            border-radius: 50px;            
+        }
+        .project-pipeline{
+            background: #0291D5;
+            border: 1px solid #fff;
+            padding:6px 8px 6px 20px;
+            border-radius: 50px;
+        }
+        .project-complete{
+            background: #01308B;
+            border: 1px solid #fff;
+            padding:6px 8px 6px 20px;
+            border-radius: 50px;
+        }
+        .project-1{
+            flex-basis: 40%;
+            max-width: 40%;
+            margin-right: 12%;
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+        }
+        .project-1-content ul,
+        .project-2-content ul,
+        .project-3-content ul,
+        .project-4-content ul,
+        .project-5-content ul,
+        .project-6-content ul,
+        .project-7-content ul,
+        .project-8-content ul,
+        .project-9-content ul{
+            margin-bottom: 0;
+        }
+        .project-9-content p,
+        .project-8-content p,
+        .project-7-content p,
+        .project-6-content p,
+        .project-5-content p,
+        .project-4-content p,
+        .project-3-content p,
+        .project-2-content p,
+        .project-1-content p{
+            font-size:16px;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .project-9-content ul li,
+        .project-8-content ul li,
+        .project-7-content ul li,
+        .project-6-content ul li,
+        .project-5-content ul li,
+        .project-4-content ul li,
+        .project-3-content ul li,
+        .project-2-content ul li,
+        .project-1-content ul li{
+            background: #3CB437;
+            border-radius: 50%;
+            border:1px solid #fff;
+            color: #fff;
+            width: 25px;
+            height: 25px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .project-9-price p,
+        .project-8-price p,
+        .project-7-price p,
+        .project-6-price p,
+        .project-5-price p,
+        .project-4-price p,
+        .project-3-price p,
+        .project-2-price p,
+        .project-1-price p{
+            background: #fff;
+            color: #B27479;
+            width: 72px;
+            height:72px;
+            display: inline-flex;
+            justify-content:center;
+            align-items: center;
+            border-radius: 50%;
+        }
+        .project-2{
+            flex-basis: 17%;
+            max-width: 17%;
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+        }
+        .project-3{
+            margin-left: 34%;
+            flex-basis: 20%;
+            max-width: 20%;
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+        }
+        .project-3-content ul li:nth-child(2),
+        .project-3-content ul li:last-child{
+            background: #FFFD49;
+            color: #000;
+        }
+        .project-4{
+            flex-basis: 60%;
+            max-width: 60%;
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+        }
+        .project-5{
+            margin-left: 50%;
+            flex-basis: 50%;
+            max-width: 50%;
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+        }
+        .project-6{
+            margin-left: 8%;
+            flex-basis: 32%;
+            max-width: 32%;
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+        }
+        .project-7{
+            margin-left: 50%;
+            flex-basis: 46%;
+            max-width: 46%;
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+        }
+        .project-8{
+            flex-basis:18%;
+            max-width: 18%;
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+        }
+        .project-9{
+            flex-basis:50%;
+            max-width: 50%;
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+        }
+        .footer{
+            padding: 20px 40px 10px 40px;
+        }
+        .footer__list li{
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-right: 48px!important;
+        }
+        .footer__list li p{
+            border-radius: 50%;
+            border:1px solid #fff;
+            color: #fff;
+            width: 25px;
+            height: 25px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+        }
+        .footer__list span{
+            font-size: 16px;
+            color: #fff;
+        }
+        .footer__list li:first-child p{
+            background-color: #94D361;
+        }
+        .footer__list li:nth-child(2) p{
+            background-color: #FDFF4A;
+            color: #000;
+        }
+        .footer__list li:nth-child(3) p{
+            background-color: #FEBE3B;
+        }
+        .footer__list li:last-child p{
+            background-color: #C1001A;
+        }
+
+        .info__area{
+            padding: 20px 40px 10px 40px;
+        }
+        .project__info-row{
+            width: 56%;
+            margin-left: auto;
+        }
+        .project__info-row ul{
+            margin-bottom: 0;
+            display: inline-flex;
+            align-items: center;
+        }
+        .project__info-row ul li:not(:last-child){
+            margin-right: 48px!important;
+        }
+        .project__info-row ul li:first-child button{
+            width: 120px;
+            height: 42px;
+            background: #fff;
+            font-size: 20px;
+            font-weight: 600;
+            border-radius:0;
+        }
+        .project__info-row ul li:not(:first-child){
+            display: inline-flex;
+            align-items: center;
+        }
+        .project__info-row ul li:not(:first-child) div{
+            width: 88px;
+            height: 36px;
+            border-radius: 50px;
+            margin-right: 12px;
+            border:2px solid #fff;
+        }
+        .project__info-row ul li:nth-child(2) div{
+            background: #01308B;
+        }
+        .project__info-row ul li:nth-child(3) div{
+            background: #EAA934;
+        }
+        .project__info-row ul li:last-child div{
+            background: #0291D5;
+        }
+
+        .project__info-row ul li:not(:first-child) p{
+            font-size: 16px;
+            color: #fff;
+            font-weight: 500;
+        }
+        .header{
+            padding: 20px 40px 10px 40px;
+        }
+        .header .row{
+            background-color: #011846;
+            padding:10px 0;
+            position: relative;
+            z-index: -1;
+        }
+        .header .row .col-md-3{
+            padding:0 40px;
+            position: relative;
+        }
+        .header .row .col-md-3:not(:last-child)::after{
+            content: "";
+            position: absolute;
+            background: #346492;
+            width: 1px;
+            height:100vh;
+            right: 0;
+            top: -10px;
+            z-index: -1;
+        }
+        .q p{
+            font-size:18px;
+            font-weight: 600;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .q ul{
+            margin-bottom: 0;
+        }
+        .q ul{
+            display:flex;
+            justify-content:space-between;
+        }
+        .q ul li{
+            color: #fff;
+        }
+    </style>
+
+</head>
+<body>
+
+    <header class="header">
+        <div class="container-fluid">
+            <div class="project__portfolio-title">
+                <h1>Executive summary project portfolio</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="q">
+                        <p>Q1 22</p>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                Jan
+                            </li>
+                            <li class="list-inline-item">
+                                Feb
+                            </li>
+                            <li class="list-inline-item">
+                                March
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="q">
+                        <p>Q2 22</p>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                April
+                            </li>
+                            <li class="list-inline-item">
+                                May
+                            </li>
+                            <li class="list-inline-item">
+                                Jun
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="q">
+                        <p>Q1 22</p>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                Jul
+                            </li>
+                            <li class="list-inline-item">
+                                Aug
+                            </li>
+                            <li class="list-inline-item">
+                                Sep
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="q">
+                        <p>Q1 22</p>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                Oct
+                            </li>
+                            <li class="list-inline-item">
+                                Nov
+                            </li>
+                            <li class="list-inline-item">
+                                Dec
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="project__portfolio">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="project-1 project-flight">
+                    <div class="project-1-content">
+                        <p>Project 1</p>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                S
+                            </li>
+                            <li class="list-inline-item">
+                                B
+                            </li>
+                            <li class="list-inline-item">
+                                R
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="project-1-price">
+                        <p>$350k</p>
+                    </div>
+                </div>
+                <div class="project-2 project-flight">
+                    <div class="project-2-content">
+                        <p>Project 2</p>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                S
+                            </li>
+                            <li class="list-inline-item">
+                                B
+                            </li>
+                            <li class="list-inline-item">
+                                R
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="project-2-price">
+                        <p>$600k</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="project-3 project-flight">
+                    <div class="project-3-content">
+                        <p>Project 3</p>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                S
+                            </li>
+                            <li class="list-inline-item">
+                                B
+                            </li>
+                            <li class="list-inline-item">
+                                R
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="project-3-price">
+                        <p>$600k</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="project-4 project-flight">
+                    <div class="project-4-content">
+                        <p>Project 4</p>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                S
+                            </li>
+                            <li class="list-inline-item">
+                                B
+                            </li>
+                            <li class="list-inline-item">
+                                R
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="project-4-price">
+                        <p>$</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="project-5 project-pipeline">
+                    <div class="project-5-content">
+                        <p>Project 5</p>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                S
+                            </li>
+                            <li class="list-inline-item">
+                                B
+                            </li>
+                            <li class="list-inline-item">
+                                R
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="project-5-price">
+                        <p>$450k</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="project-6 project-flight">
+                    <div class="project-6-content">
+                        <p>Project 6</p>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                S
+                            </li>
+                            <li class="list-inline-item">
+                                B
+                            </li>
+                            <li class="list-inline-item">
+                                R
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="project-6-price">
+                        <p>$450k</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="project-7 project-pipeline">
+                    <div class="project-7-content">
+                        <p>Project 7</p>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                S
+                            </li>
+                            <li class="list-inline-item">
+                                B
+                            </li>
+                            <li class="list-inline-item">
+                                R
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="project-7-price">
+                        <p>$450k</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="project-8 project-complete">
+                    <div class="project-8-content">
+                        <p>Project 8</p>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                S
+                            </li>
+                            <li class="list-inline-item">
+                                B
+                            </li>
+                            <li class="list-inline-item">
+                                R
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="project-8-price">
+                        <p>$450k</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="project-9 project-complete">
+                    <div class="project-9-content">
+                        <p>Project 9</p>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                S
+                            </li>
+                            <li class="list-inline-item">
+                                B
+                            </li>
+                            <li class="list-inline-item">
+                                R
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="project-9-price">
+                        <p>$450k</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <secton class="info__area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="project__info-row">
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <button class="btn">Today</button>
+                            </li>
+                            <li class="list-inline-item">
+                                <div></div>
+                                <p>Projects complete</p>
+                            </li class="list-inline-item">
+                            <li class="list-inline-item">
+                                <div></div>
+                                <p>Projects flight</p>
+                            </li>
+                            <li class="list-inline-item">
+                                <div></div>
+                                <p>Projects pipline</p>
+                            </li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </secton>
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <ul class="footer__list list-inline">
+                    <li class="list-inline-item">
+                        <p>G</p>
+                        <span>Under Controll</span>
+                    </li>
+                    <li class="list-inline-item">
+                        <p>Y</p>
+                        <span>To be monitored closely</span>
+                    </li>
+                    <li class="list-inline-item">
+                        <p>A</p>
+                        <span>Requires Immediate attention</span>
+                    </li>
+                    <li class="list-inline-item">
+                        <p>R</p>
+                        <span>Pause work white deploying corrective action</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!--Script Files-->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
