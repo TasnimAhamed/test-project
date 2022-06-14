@@ -22,6 +22,14 @@
     <!--Media CSS File-->
     <link rel="stylesheet" href="css/media.css">
 
+    <style>
+        .resize-drag{
+            touch-action: none;
+            /* This makes things *much* easier */
+            box-sizing: border-box;
+        }
+    </style>
+
 </head>
 <body>
 
@@ -102,7 +110,7 @@
     <section class="project__portfolio">
         <div class="container-fluid">
             <div class="row">
-                <div class="project-1 project-flight">
+                <div class="project-1 project-flight resize-drag">
                     <div class="project-1-content">
                         <p>Project 1</p>
                         <ul class="list-inline">
@@ -121,7 +129,7 @@
                         <p>$350k</p>
                     </div>
                 </div>
-                <div class="project-2 project-flight">
+                <div class="project-2 project-flight resize-drag">
                     <div class="project-2-content">
                         <p>Project 2</p>
                         <ul class="list-inline">
@@ -142,7 +150,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="project-3 project-flight">
+                <div class="project-3 project-flight resize-drag">
                     <div class="project-3-content">
                         <p>Project 3</p>
                         <ul class="list-inline">
@@ -163,7 +171,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="project-4 project-flight">
+                <div class="project-4 project-flight resize-drag">
                     <div class="project-4-content">
                         <p>Project 4</p>
                         <ul class="list-inline">
@@ -184,7 +192,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="project-5 project-pipeline">
+                <div class="project-5 project-pipeline resize-drag">
                     <div class="project-5-content">
                         <p>Project 5</p>
                         <ul class="list-inline">
@@ -205,7 +213,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="project-6 project-flight">
+                <div class="project-6 project-flight resize-drag">
                     <div class="project-6-content">
                         <p>Project 6</p>
                         <ul class="list-inline">
@@ -226,7 +234,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="project-7 project-pipeline">
+                <div class="project-7 project-pipeline resize-drag">
                     <div class="project-7-content">
                         <p>Project 7</p>
                         <ul class="list-inline">
@@ -247,7 +255,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="project-8 project-complete">
+                <div class="project-8 project-complete resize-drag">
                     <div class="project-8-content">
                         <p>Project 8</p>
                         <ul class="list-inline">
@@ -268,7 +276,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="project-9 project-complete">
+                <div class="project-9 project-complete resize-drag">
                     <div class="project-9-content">
                         <p>Project 9</p>
                         <ul class="list-inline">
@@ -343,9 +351,78 @@
 
 
     <!--Script Files-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
+
+    <script>
+        interact('.resize-drag')
+                .resizable({
+                    edges: { top: false, left: true, bottom: false, right: true },
+                    listeners: {
+                    move: function (event) {
+                        let { x, y } = event.target.dataset
+
+                        x = (parseFloat(x) || 0) + event.deltaRect.left
+                        y = (parseFloat(y) || 0) + event.deltaRect.top
+
+                        x= x > 0 ? x: 0;
+                        x= x > (window.innerWidth - 330) ? (window.innerWidth - 330) : x; 
+
+                        Object.assign(event.target.style, {
+                        width: `${event.rect.width}px`,
+                        height: `${event.rect.height}px`,
+                        transform: `translate(${x}px, ${y}px)`
+                        })
+
+                        Object.assign(event.target.dataset, { x, y })
+                    }
+                    }
+                })
+    </script>
+
+<script>
+    document.onkeydown = function(e) {
+    if(event.keyCode == 123) {
+    return false;
+    }
+    if(e.ctrlKey && e.keyCode == 'E'.charCodeAt(0)){
+    return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
+    return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+    return false;
+    }
+    if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
+    return false;
+    }
+    if(e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)){
+    return false;
+    }
+    if(e.ctrlKey && e.keyCode == 'H'.charCodeAt(0)){
+    return false;
+    }
+    if(e.ctrlKey && e.keyCode == 'A'.charCodeAt(0)){
+    return false;
+    }
+    if(e.ctrlKey && e.keyCode == 'F'.charCodeAt(0)){
+    return false;
+    }
+    if(e.ctrlKey && e.keyCode == 'E'.charCodeAt(0)){
+    return false;
+    }
+    }
+</script>
+
+<script>
+    $(document).bind("contextmenu",function(e) {
+        e.preventDefault();
+    });
+</script>
 
 </body>
 </html>
